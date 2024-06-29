@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/conexion');
 
-class Pagos extends Model{
+class Categoria extends Model{
   static init(sequelize,DataTypes){
     return super.init(
       {
@@ -11,23 +11,19 @@ class Pagos extends Model{
           autoIncrement:true,
           primaryKey:true,
         },
-        iCompras:{
-          type: DataTypes.STRING,
-          allowNull:false,
-        },
-        iProveedor:{
+        categoria:{
           type: DataTypes.STRING,
           allowNull:false,
         }
       },
       {
         sequelize,
-        tableName:'pagos',
+        tableName:'categorias',
       }
     );
   }
 }
 
-Pagos.init(sequelize,DataTypes);
+Categoria.init(sequelize,DataTypes);
 
-module.exports = Pagos;
+module.exports = Categoria;

@@ -11,11 +11,19 @@ class Productos extends Model{
           autoIncrement:true,
           primaryKey:true,
         },
-        nombre:{
+        codigo:{
           type: DataTypes.STRING,
           allowNull:false,
         },
-        descripcion:{
+        producto:{
+          type: DataTypes.STRING,
+          allowNull:false,
+        },
+        categoria_id:{
+          type: DataTypes.STRING,
+          allowNull:false,
+        },
+        existencia_actual:{
           type: DataTypes.STRING,
           allowNull:false,
         },

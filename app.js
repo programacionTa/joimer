@@ -14,9 +14,21 @@ const server = http.createServer(app);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'/views'));
 
+
 // Configuración de recuperación de datos y envío
 app.use(express.urlencoded({ extended:false}));
 app.use(express.json());
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Conexión a la base de datos establecida correctamente');
+    // Sincronización del modelo con la base de datos
+    return sequelize.sync({ force:false});
+  })
+  .catch((error) => {
+    console.error('Error al conectar a la base de datos', error.message);
+  });
 
 // Routers
 app.use('/', adminRoutes);

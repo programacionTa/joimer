@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Agregar</title>
   
 
 </head>
@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Login</title>
+    <title>Agregar</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -141,35 +141,53 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+select{
+    background-color:rgb(0,0,0,.5);
+}
     </style>
+}
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+
    <form class="formulario" action="/agregarProductoPost" method="post">
 
                   <div class="inputD">
                     
-                        <label>Nombre</label>
+                        <label>codigo</label>
                      
-                       <input type="text" name="nombre" placeholder="Ingrese nombre"> 
+                       <input type="text" name="codigo" placeholder="Ingrese codigo"> 
                     
                   </div>
 
                   <div class="inputD">
                    
-                       <label>Descripcion</label> 
+                       <label>producto</label> 
                     
-                       <input type="text" name="descripcion" placeholder="Ingrese descripcion"> 
+                       <input type="text" name="producto" placeholder="Ingrese producto"> 
                     
                   </div>
 
                   <div class="inputD">
                      
-                       <label>Precio</label> 
+                       <label>categoria</label> 
+
+                       <select name="categoria_id">
+                        <% for(let x = 0; x < c.length;x++ ){ %>
+                         <option value="<%=c[x].categoria%>"><%=c[x].categoria%></option>
+                        <% } %>
+                       </select> 
+                    
+                  </div>
+                  <div class="inputD">
+                     
+                       <label>existencia_actual</label> 
+
+                       <input type="text" name="existencia_actual" placeholder="Ingrese existencia_actual"> 
+                    
+                  </div>
+                   <div class="inputD">
+                     
+                       <label>precio</label> 
 
                        <input type="text" name="precio" placeholder="Ingrese precio"> 
                     

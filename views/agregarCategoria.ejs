@@ -111,7 +111,8 @@ input{
 button{
     margin-top: 50px;
     width: 100%;
-    color:black !important;
+    background-color: #ffffff;
+    color: #080710;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
@@ -140,56 +141,21 @@ button{
 .social i{
   margin-right: 4px;
 }
-h1{
-    color: white;
-    text-align: center;
-    margin-top:2rem;
-}
 
     </style>
 </head>
 <body>
- 
-
-  <form class="formulario" action="/updateProductoPost/<%=p.id%>" method="post">
-
-                  <div class="inputD">
-                    
-                        <label>codigo</label>
-                     
-                       <input type="text" name="codigo" value="<%=p.codigo%>"> 
-                    
-                  </div>
+   
+   <form class="formulario" action="/agregarCategoriaPost" method="post">
 
                   <div class="inputD">
-                   
-                       <label>producto</label> 
                     
-                       <input type="text" name="producto" value="<%=p.producto%>"> 
-                    
-                  </div>
-
-                  <div class="inputD">
+                        <label>categoria</label>
                      
-                       <label>categoria_id</label> 
-
-                       <input type="text" name="categoria_id" value="<%=p.categoria_id%>"> 
+                       <input type="text" name="categoria" placeholder="Ingrese categoria"> 
                     
                   </div>
-                  <div class="inputD">
-                     
-                       <label>existencia_actual</label> 
 
-                       <input type="text" name="existencia_actual" value="<%=p.existencia_actual%>"> 
-                    
-                  </div>
-                   <div class="inputD">
-                     
-                       <label>precio</label> 
-
-                       <input type="text" name="precio" value="<%=p.precio%>"> 
-                    
-                  </div>
                    <button>Registrar</button>
                    
                 </form>
