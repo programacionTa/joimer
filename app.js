@@ -1,24 +1,16 @@
-const adminRoutes = require('./routes/adminRoutes');
+const sequelize =require('./config/conexion');//conexion
 const express = require('express');
+const app = express();
 const http = require('http');
 const path = require('path');
-const port = 3000;
-const app = express();
-// Configuración de archivos estáticos
-app.use(express.static(path.join(__dirname, '/public')));
-
-// Instancia del servidor
+const port = 5000;
 const server = http.createServer(app);
 
-// Configuración del motor de plantillas
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname,'/views'));
+const router = require('./router/main.js');
 
-
-// Configuración de recuperación de datos y envío
-app.use(express.urlencoded({ extended:false}));
+app.use(express.static(__dirname+'/static'));
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-
 sequelize
   .authenticate()
   .then(() => {
@@ -29,18 +21,12 @@ sequelize
   .catch((error) => {
     console.error('Error al conectar a la base de datos', error.message);
   });
+ app.set('view engine','ejs');
+ app.set('views',path.join(__dirname,'./views'));
 
-// Routers
-app.use('/', adminRoutes);
-
-server.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
-});
+app.use('/',router);
 
 
-
-
-
-
-
-
+ server.listen(port,()=>{
+ 	console.log(`servidor iniciado en el puerto ${port}`);
+ })

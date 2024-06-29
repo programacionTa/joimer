@@ -27,8 +27,7 @@ res.status(500).send("Error en el servidor");
 //////////////////////////////////////////////
 const agregarProducto = async(req,res)=>{
 try{
-const c = await categorias.findAll();
-res.render("agregarProducto",{c});
+res.render("agregarProducto");
 }catch(error){
 console.error(error.message);
 res.status(500).send("Error en el servidor");
